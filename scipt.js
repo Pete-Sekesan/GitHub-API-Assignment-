@@ -17,13 +17,14 @@
     }
 
 function showResults(responseJson){
+    console.log('showResults function ran')
 
 }
 
 
 //create watch submit button
 function watchSubmit() {
-    console.log('testing watchSubmit')
+    console.log('watchSubmit function ran')
     $('#search-form').submit(event => event.preventDefault());
     getUserName(userInput);
 }
