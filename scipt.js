@@ -16,8 +16,17 @@
         .catch(err => alert('That user does not exist. Please try another'));
     }
 
+function showResults(responseJson){
+
+}
 
 
+//create watch submit button
+function watchSubmit() {
+    console.log('testing watchSubmit')
+    $('#search-form').submit(event => event.preventDefault());
+    getUserName(userInput);
+}
 //clear out the search field after entering
 
 //find endpoint for searching GitHub user repos
