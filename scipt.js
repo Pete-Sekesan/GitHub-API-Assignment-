@@ -1,8 +1,22 @@
 
 
 //create a function to search for GitHub user name
+    
+    function userInput(){
+        //create a variable to hold the user input from search-term ID
+        let textInput = $('#search-term').val();
+        return textInput;
+    }
 
-//link that function to the search-term ID field
+    //request API from GitHub
+    function getUserName(){
+        fetch("https://api.github.com/users/" + userInput() + "/repos")
+        .then(response => response.json())
+        .then(responseJson => showResults(response.json))
+        .catch(err => alert('That user does not exist. Please try another'));
+    }
+
+
 
 //clear out the search field after entering
 
