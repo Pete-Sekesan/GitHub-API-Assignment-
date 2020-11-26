@@ -22,8 +22,8 @@
 function showResults(responseJson) {
     console.log('showResults function ran')
     $('#display-results').empty();
-    responseJson.forEach(function (repo) {
-        $('#search-results').append(`<li>${repo.name} ${repo.owner.url}`)
+    responseJson.forEach(function(repo) {
+        $('#search-results').append(`<li>${repo.name} ${repo.owner.url}</li>`)
         $('#display-results').removeClass('hidden');
 
 
@@ -36,6 +36,7 @@ function showResults(responseJson) {
 
 //create watch submit button
     function watchForm(){
+        console.log('watchForm function ran')
     $('#search-form').submit(e => {e.preventDefault();
     const searchUser = $('#search-term').val();
     getUserName(searchUser)
