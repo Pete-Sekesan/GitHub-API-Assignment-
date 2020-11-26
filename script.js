@@ -23,7 +23,7 @@ function showResults(responseJson) {
     console.log('showResults function ran')
     $('#display-results').empty();
     responseJson.forEach(function(repo) {
-        $('#search-results').append(`<li>${repo.name} ${repo.owner.url}</li>`)
+        $('#search-results').append(`<li><a href="${repo.name}" ${repo.owner.url}</a></li>`)
         $('#display-results').removeClass('hidden');
 
 
@@ -44,7 +44,7 @@ function showResults(responseJson) {
 })
     }
 
-    $(watchForm())
+    $(watchForm)
 
 
 
