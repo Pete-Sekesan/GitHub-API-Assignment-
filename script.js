@@ -2,32 +2,46 @@
 
 //create a function to search for GitHub user name
     
-    function userInput(){
-        //create a variable to hold the user input from search-term ID
-        let textInput = $('#search-term').val();
-        return textInput;
-    }
+  
 
     //request API from GitHub
-    function getUserName(){
-        fetch("https://api.github.com/users/" + userInput() + "/repos")
+    function getUserName(searchUser){
+        const url = `https://api.github.com/users/${searchUser}/repos`
+        fetch(url)
         .then(response => response.json())
         .then(responseJson => showResults(response.json))
         .catch(err => alert('That user does not exist. Please try another'));
     }
 
-function showResults(responseJson){
+function showResults(responseJson) {
     console.log('showResults function ran')
+    $('#display-results').empty();
+    responseJson.forEach(function (repo) {
+        $('#search-results').append(`<li>${repo.name} ${repo.owner.url}`)
+        $('#display-results').removeClass('hidden');
 
+
+    })
 }
+
+
+
 
 
 //create watch submit button
-function watchSubmit() {
-    console.log('watchSubmit function ran')
-    $('#search-form').submit(event => event.preventDefault());
-    getUserName(userInput);
-}
+    function watchForm(){
+    $('#search-form').submit(e => {e.preventDefault();
+    const searchUser = $('#search-term').val();
+    getUserName(searchUser)
+        
+})
+    }
+
+    $(watchForm())
+
+
+
+
 //clear out the search field after entering
 
 //find endpoint for searching GitHub user repos
@@ -40,5 +54,4 @@ function watchSubmit() {
 
 //empty the display-results ID after new search
 
-//create an error message if no user name exists 
-
+//create an error message if no user name exists
