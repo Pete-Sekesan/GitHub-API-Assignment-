@@ -8,10 +8,16 @@
     function getUserName(searchUser){
         const url = `https://api.github.com/users/${searchUser}/repos`
         fetch(url)
-        .then(response => response.json())
-        .then(responseJson => showResults(response.json))
+        .then(response => {
+            if (response.ok){
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => showResults(responseJson))
         .catch(err => alert('That user does not exist. Please try another'));
-    }
+        }
+    
 
 function showResults(responseJson) {
     console.log('showResults function ran')
