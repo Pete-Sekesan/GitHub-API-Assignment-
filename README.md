@@ -11,3 +11,5 @@ The repos associated with that handle must be displayed on the page.
 You must display the repo name and link to the repo URL.
 The user must be able to make multiple searches and see only the results for the current search.
 This exercise should take about an hour to complete. If you're having trouble, attend a Q&A session or reach out on Slack for help.
+
+Live link: https://pete-sekesan.github.io/GitHub-API-Assignment-/
